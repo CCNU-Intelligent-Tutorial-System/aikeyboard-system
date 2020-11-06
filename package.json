@@ -1,19 +1,8 @@
 {
-  "name": "fullstack2discretemath",
-  "version": "1.0.1",
-  "description": "jsonserver",
+  "name": "fullstackdiscretemath",
+  "version": "1.0.0",
+  "description": "fullstackdiscretemath",
   "main": "server.js",
-  "scripts": {
-    "json-server": "json-server --watch db.json",
-    "start": "node server.js",
-    "build": "npm install --prefix client && npm run build --prefix client",
-    "server": "nodemon server.js --ignore 'client/'",
-    "client": "npm run serve --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "author": "",
-  "license": "ISC",
-  "heroku-run-build-script": true,
   "dependencies": {
     "body-parser": "^1.19.0",
     "cloudinary": "^1.21.0",
@@ -31,5 +20,16 @@
     "seraph": "^0.15.3",
     "superagent": "^5.2.2",
     "webpack": "^4.42.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "json-server": "json-server --watch db.json",
+    "start": "node server.js",
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "server": "nodemon server.js --ignore 'client/'",
+    "client": "npm run serve --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "",
+  "license": "ISC"
 }
