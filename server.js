@@ -47,9 +47,9 @@ handleDisconnect();
 // Cloudinary
 const cloudinary = require('cloudinary');
 cloudinary.config({
-    cloud_name: 'hntupmhmi',
-    api_key: '851164953851241',
-    api_secret: 'Dn6cTZDxBEHofFxUMm948bNewBI'
+    cloud_name: 'ht3nqskad',
+    api_key: '722969997287287',
+    api_secret: 'fP0EqTfz5P7yI1rHzcaoc7001cM'
 });  // Remove when remote
 // nlp-compromise
 const nlp = require('compromise');
@@ -176,6 +176,7 @@ server.get('/graph/:p1', (req,res)=>{
 
 
 server.use(jsonServer.bodyParser);
+
 
 if (process.env.NODE_ENV==='production'){
     server.use(express.static(__dirname+'/public/'));

@@ -85,16 +85,3 @@ export default {
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: auto;
-  margin-top: 3rem;
-  max-width: 700px;
-}
-.icon{
-  cursor: pointer;
-}
-</style>
