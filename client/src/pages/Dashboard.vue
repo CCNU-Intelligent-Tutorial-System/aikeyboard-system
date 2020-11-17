@@ -33,29 +33,29 @@ export default {
           hiddenOnCollapse: true
         },
         {
-          href: '/home',
+          href: '/charts',
           title: '用户',
           icon: 'fa fa-user'
         },
+        // {
+        //   href: '/charts',
+        //   title: '题目',
+        //   icon: 'fa fa-chart-area',
+        //   // badge: {
+        //   //   text: 'new',
+        //   //   class: 'default-badge'
+        //   // }
+        // },
         {
-          href: '/charts',
-          title: '题目',
-          icon: 'fa fa-chart-area',
-          // badge: {
-          //   text: 'new',
-          //   class: 'default-badge'
-          // }
-        },
-        {
-          href: '/answersheet',
+          href: '/answersheet2',
           title: '答题卡',
           icon: 'fa fa-chart-area',
         },
-        {
-          href: '/answersheet2',
-          title: '答题卡2',
-          icon: 'fa fa-chart-area',
-        }
+        // {
+        //   href: '/answersheet2',
+        //   title: '答题卡2',
+        //   icon: 'fa fa-chart-area',
+        // }
       ]
     }
   },
