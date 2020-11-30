@@ -1,38 +1,11 @@
 <template>
   <div class="plist">
-    <h1>dsds</h1>
     <aside class="menu">
       <p class="menu-label">
-        General
+        数理逻辑
       </p>
-      <ul class="menu-list">
-        <li><a>Dashboard</a></li>
-        <li><a>Customers</a></li>
-      </ul>
-      <p class="menu-label">
-        Administration
-      </p>
-      <ul class="menu-list">
-        <li><a>Team Settings</a></li>
-        <li>
-          <a class="is-active">Manage Your Team</a>
-          <ul>
-            <li><a>Members</a></li>
-            <li><a>Plugins</a></li>
-            <li><a>Add a member</a></li>
-          </ul>
-        </li>
-        <li><a>Invitations</a></li>
-        <li><a>Cloud Storage Environment Settings</a></li>
-        <li><a>Authentication</a></li>
-      </ul>
-      <p class="menu-label">
-        Transactions
-      </p>
-      <ul class="menu-list">
-        <li><a>Payments</a></li>
-        <li><a>Transfers</a></li>
-        <li><a>Balance</a></li>
+      <ul class="menu-list" >
+        <li v-for="l in logic"><a>{{ l.description }}</a></li>
       </ul>
     </aside>
   </div>
@@ -45,7 +18,8 @@ export default {
   name: "ProblemList",
   data(){
     return {
-      problems:[]
+      problems:[],
+      logic: []
     }
   },
   created() {
@@ -53,9 +27,10 @@ export default {
   },
   methods:{
     async initData() {
+
       const response = await axios.get('http://discretemath-app.herokuapp.com/problems?_expand=chapter');
       this.problems = response.data.sort((q1,q2)=>(q1.chapterId-q2.chapterId));
-
+      this.logic = this.problems.filter((o)=>(o.chapter.text==="数理逻辑"))
     },
   }
 }
