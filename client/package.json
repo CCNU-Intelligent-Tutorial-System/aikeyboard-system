@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "DiscreteMathTutorialSystem",
   "version": "0.1.0",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -15,9 +15,14 @@
     "@editorjs/table": "^1.3.0",
     "@editorjs/warning": "^1.2.0",
     "axios": "^0.20.0",
+    "base64-arraybuffer": "^0.2.0",
     "core-js": "^2.5.7",
     "datatables-bulma": "^1.0.1",
+    "http": "0.0.1-security",
+    "mongodb": "^2.2.31",
     "node-mathquill": "^0.10.2",
+    "socket.io": "^2.0.3",
+    "v-hotkey": "^0.8.0",
     "vue": "^2.6.11",
     "vue-sidebar-menu": "^4.7.3"
   },

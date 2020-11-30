@@ -53,10 +53,25 @@ cloudinary.config({
 });  // Remove when remote
 // nlp-compromise
 const nlp = require('compromise');
+// MongoDB and Socket.IO
+const credentials = require('./credentials');
+var ObjectID = require('mongodb').ObjectID;
+const mongo = require('mongodb').MongoClient;
+// const io = require('socket.io')(jsonServer, {
+//     cors: {
+//         origin: "http://localhost:8080",
+//         methods: ["GET", "POST"]
+//     }
+// });
+// const client = io.listen(5200).sockets;
+
+
 // Before Routes
+const cors = require('cors');
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(middlewares);
+server.use(cors);
 
 
 
@@ -140,7 +155,7 @@ server.post('/api/login',(req,res)=>{
 });
 
 server.use(router);
-server.use(utils.exclude('/api/:other', utils.verifyToken));
+// server.use(utils.exclude('/api/:other', utils.verifyToken));
 // Use JWT below
 
 server.get('/userinfo', (req,res)=>{
@@ -175,6 +190,28 @@ server.get('/graph/:p1', (req,res)=>{
 });
 
 
+server.get('/api/neo4j/search/:c',(req,res)=>{
+    // Connect Neo4j
+    var c = req.params.c;
+    var neo4j1 = require('neo4j-driver');
+    var graphenedbURL1 = process.env['GRAPHENEDB_URL'] || "neo4j://localhost:7687"
+    var driver1 = new neo4j1.driver(graphenedbURL1,  neo4j.auth.basic("neo4j", "lonke"));
+    const session1 = driver1.session();
+    session.run('MATCH (c:Concept) where c.name='+c+' return c')
+        .then(result => {
+            console.log( i ,' completed.');
+        })
+        .catch(e => {
+            console.log(e);
+        })
+        .then(() => {
+            return session.close();
+        })
+        .then(() => {
+            return driver.close();
+        });
+});
+
 server.use(jsonServer.bodyParser);
 
 
@@ -186,3 +223,191 @@ if (process.env.NODE_ENV==='production'){
 }
 
 server.listen(port,()=>{console.log("***JsonServer Running on "+port+"***")});
+
+// const client = require('socket.io').listen(5200).sockets;
+// mongo.connect(credentials.Mongo,function (err, db) {
+//     if (err) throw err;
+//     console.log("***MongoDB Connected on PORT 5200.");
+//     client.on('connection',function(socket) {
+//         console.log('***Socket connected.');
+//         let postits = db.collection('postits');
+//         let lines = db.collection('lines');
+//         let sendStatus = function (s) {
+//             socket.emit('status', s);
+//         };
+//         sendStatus('连接成功！');
+//         postits.find({}).toArray(function (err, res) {
+//             if (err) throw err;
+//             if(res.length>0) {
+//                 socket.emit('output', res);
+//             }else {
+//                 //初始化一些数据，可删除
+//                 // var initdata = [ {
+//                 //     "color" : "yellow",
+//                 //     "pos" : {
+//                 //         "x" : 489,
+//                 //         "y" : 55
+//                 //     },
+//                 //     "text" : "路由1"
+//                 // },  {
+//                 //     "color" : "blue",
+//                 //     "pos" : {
+//                 //         "x" : 690,
+//                 //         "y" : 252
+//                 //     },
+//                 //     "text" : "路由2"
+//                 // }, {
+//                 //     "color" : "red",
+//                 //     "pos" : {
+//                 //         "x" : 393,
+//                 //         "y" : 354
+//                 //     },
+//                 //     "text" : "路由3"
+//                 // } ];
+//                 // postits.insertMany(initdata);
+//                 // //初始化 结束
+//                 // socket.emit('output', initdata);
+//                 socket.emit('output', []);
+//             }
+//         });
+//
+//         lines.find({}).toArray(function (err, res) {
+//             if (err) throw err;
+//             socket.emit('lines', res);
+//         });
+//
+//         socket.on('addpostit', function (newpostit) {
+//             postits.insertOne(newpostit,function (err, res) {
+//                 if (err) throw err;
+//                 postits.find({}).limit(20).toArray(function (err, res) {
+//                     if (err) throw err;
+//                     socket.emit('output', res);
+//                 });
+//             });
+//         });
+//
+//         socket.on('addpostits', function (newpostits) {
+//             if (newpostits.data.length===0){
+//                 sendStatus('数据为空');
+//             }
+//             var userId = newpostits.userId,problemId = newpostits.problemId;
+//             postits.updateOne({$and:[{userId:userId},{problemId:problemId}]}, {
+//                 $set:{
+//                     data: newpostits.data
+//                 }
+//             },{ upsert: true },function (err, res) {
+//                 if (err) throw err;
+//                 // console.log(res);
+//                 sendStatus('保存成功！')
+//             });
+//         });
+//
+//         socket.on('update', function (newpostit) {
+//             let _id = ObjectID(newpostit._id);
+//             delete newpostit['_id'];
+//             postits.updateOne({_id:_id},newpostit,function (err, res) {
+//                 if (err) throw err;
+//                 // console.log(res);
+//             });
+//         });
+//
+//         socket.on('delete', function (newpostit) {
+//             if (newpostit._id === null) return;
+//             var ObjectId = require('mongodb').ObjectID;
+//             let _id = ObjectId(newpostit._id);
+//             console.log("_id",_id,"type",typeof _id);
+//             lines.deleteMany({$or:[{startId:newpostit._id},{endId:newpostit._id}]},function (err, res) {
+//                 if (err) throw err;
+//                 lines.find({}).toArray(function (err, res) {
+//                     if (err) throw err;
+//                     socket.emit('lines', res);
+//                 });
+//             });
+//
+//             postits.deleteOne({_id:_id},function (err, res) {
+//                 if (err) throw err;
+//                 sendStatus('删除成功！');
+//             });
+//         });
+//
+//
+//         socket.on('deletelines', function (mlines) {
+//             if (mlines.length===0) return;
+//
+//             mlines.forEach((lid)=>{
+//                 let _id = ObjectID(lid);
+//                 lines.deleteOne({_id:_id},function(err, result) {
+//                     if (err) {
+//                         sendStatus('删除失败！');
+//                     }
+//                     sendStatus('删除成功！');
+//                 });
+//             })
+//         });
+//
+//
+//         socket.on('addline',function (newline) {
+//             //此时的_id是string类型
+//             var startId = newline.startId;
+//             var endId = newline.endId;
+//             var color = newline.color?newline.color:'#00e0a8';
+//             if (startId>endId){
+//                 let t = startId;
+//                 startId = endId;
+//                 endId = t;
+//             }
+//             lines.updateOne({$and:[{userId:newline.userId},{problemId:newline.problemId},{startId:startId},{endId:endId},]}, {
+//                 $set:{color: color}
+//             },{ upsert: true },function (err,result) {
+//                 lines.find({}).toArray(function (err, res) {
+//                     if (err) throw err;
+//                     sendStatus('添加成功！');
+//                     socket.emit('lines', res);
+//                 });
+//             });
+//
+//
+//         });
+//
+//         socket.on('deleteAll', function () {
+//
+//             lines.deleteMany({},function (err) {
+//                 if (err) throw err;
+//                 socket.emit('lines', []);
+//             });
+//
+//             postits.deleteMany({},function (err) {
+//                 if (err) throw err;
+//                 socket.emit('output', []);
+//                 sendStatus('删除成功！');
+//             });
+//         });
+//
+//         socket.on('search',function (concept){
+//             // Connect Neo4j
+//             var neo4j1 = require('neo4j-driver');
+//             var graphenedbURL1 = process.env['GRAPHENEDB_URL'] || "neo4j://localhost:7687"
+//             var driver1 = new neo4j1.driver(graphenedbURL1,  neo4j1.auth.basic("neo4j", "lonke"));
+//             const session1 = driver1.session();
+//             session1.run('MATCH (c:Concept) where c.name="'+concept+'" return c')
+//                 .then(result => {
+//                     socket.emit('searchResult', result.records);
+//                 })
+//                 .catch(e => {
+//                     throw e;
+//                 })
+//                 .then(() => {
+//                     return session.close();
+//                 })
+//                 .then(() => {
+//                     return driver.close();
+//                 });
+//         })
+//
+//
+//         socket.on('disconnect', function () {
+//             sendStatus({message:'失去连接！',type:'error'});
+//             console.log('Disconnected');
+//         });
+//     });
+// })

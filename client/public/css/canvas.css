@@ -1,0 +1,228 @@
+body{
+  color: black;
+}
+html, body {margin: 0; height: 100%; overflow: hidden}
+canvas {
+  position: fixed;
+  /*background:transparent;*/
+  background-color: white;
+  /*display: none;*/
+}
+.postit {
+  width: 150px;
+  height: 150px;
+  font-size: calc(240px / 4 - 5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 15px 10px 40px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  transition: background-color 0.5s;
+  cursor: pointer;
+  transform-origin: 50% 50%;
+}
+.postit .imgblock{
+  width:100%;
+  height:100%;
+  position: absolute;
+  background: transparent;
+  z-index: 99;
+}
+
+.postit .block {
+  position: absolute;
+  bottom: -50px;
+  display: inline;
+  font-size: 16px;
+  color: white;
+}
+.postit .plus {
+  position: absolute;
+  bottom: 0;
+  right: -40px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+}
+
+.ce-block__content .mlink{
+  position: absolute;
+  bottom: 12px;
+  left: -23px;
+  color: var(--color-green);
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+}
+.ce-block__content:hover  .mlink{
+  opacity: 0.5;
+}
+.ce-block__content .mlink:hover {
+  opacity: 1;
+}
+.ce-block__content .mlink:active {
+  cursor: grabbing;
+}
+
+/*.mlink::before {*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  top: 50%;*/
+/*  right: 100%;*/
+/*  height: 1.15em;*/
+/*  width: 1.15em;*/
+/*  background-color: green;*/
+/*}*/
+
+.postit .delete {
+  position: absolute;
+  top: 0;
+  right: -40px;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.postit:hover .delete{
+   opacity: .5;
+ }
+.postit:hover .plus{
+  opacity: .5;
+}
+.postit .delete:hover {
+  opacity: 1;
+}
+.postit .plus:hover {
+  opacity: 1;
+}
+.datalist {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  margin-left: 50px;
+}
+.unselect {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+
+  /* 以下两个属性目前并未支持，写在这里为了减少风险 */
+  -o-user-select: none;
+  user-select: none;
+}
+.silder{
+  position: fixed;
+  float: left;
+  z-index: 9999;
+  bottom: 0px;
+  width: 80%;
+}
+.addnew {
+  border: solid 1px white;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 2px;
+}
+.deleteall {
+    border: solid 1px white;
+    color: white;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 18px;
+    background-color: transparent;
+    padding: 2px;
+    margin-left: 5px;
+}
+.addnew:hover{
+  background-color: white;
+  color: #2a2a2e;
+  transition: 0.2s;
+}
+.deleteall:hover{
+  background-color: white;
+  color: #2a2a2e;
+  transition: 0.2s;
+}
+.inactive{
+  filter: saturate(0%);
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: 0.3s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: scale(0.1);
+}
+.alertify-logs{
+  margin-left: 50px;
+}
+.alertify{
+  z-index: 999;
+}
+
+.btn-confirm{
+  color: #00e0a8;
+}
+
+.mcheck{
+  font-family: 'Font Awesome\ 5 Free';
+  content:'\f058';
+  width:30px;
+  height:30px;
+  position: absolute;
+  z-index: 999;
+  font-size:30px;
+  color:orange;
+  background-image: url('https://image.flaticon.com/icons/svg/875/875541.svg');
+  display:flex;
+  transition: all 0.3s ease-out;
+}
+label{
+  width: 100%;
+  display: inline-block;
+}
+.active{
+  background-color: var(--color-green);
+}
+.option:hover{
+  background-color: rgba(0,0,0,.05);
+}
+
+input[id="input0"]:checked ~ label[id="l0"]::before {
+  opacity:1;
+}
+input[id="input1"]:checked ~ label[id="l1"]::before {
+  opacity:1;
+}
+input[id="input2"]:checked ~ label[id="l2"]::before {
+  opacity:1;
+}
+input[id="input3"]:checked ~ label[id="l3"]::before {
+  opacity:1;
+}
+input[id="input4"]:checked ~ label[id="l4"]::before {
+  opacity:1;
+}
+input[id="input5"]:checked ~ label[id="l5"]::before {
+  opacity:1;
+}
+input[id="input6"]:checked ~ label[id="l6"]::before {
+  opacity:1;
+}
+input[id="input7"]:checked ~ label[id="l7"]::before {
+  opacity:1;
+}
+input[id="input8"]:checked ~ label[id="l8"]::before {
+  opacity:1;
+}
+input[id="input9"]:checked ~ label[id="l9"]:before {
+  opacity:1;
+}

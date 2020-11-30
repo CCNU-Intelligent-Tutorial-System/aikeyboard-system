@@ -1,0 +1,73 @@
+概念#性质
+群#群中不可能有零元
+群#零元\\theta不存在逆元
+群#设<G, *>是一个群，对于a, b \\in G，必存在唯一的x \\in G，使得a * x = b
+群#消去律：设<G, *>是一个群，对于任意的a, b, c \\in G，如果有a * b = a * c或者b * a = c * a，则必有b = c
+群#群<G, *>的运算表中的每一行或每一列都是G的元素的一个置换
+群#设<G, *>是一个群，B是G的非空子集，如果B是一个有限集，那么，只要运算*在B上封闭，<B, *>必定是<G, *>的子群
+群#设<G, \\triangle>是群，S是G的非空子集，如果对于S中的任意元素 a 和 b 有a \\triangle b^{-1} \\in S，则<S, \\triangle>是<G, \\triangle>的子群
+群#群是阿贝尔群的充要条件：对任意的a, b \\in G，有(a * b) * (a * b) = (a * a) * (b * b)
+群#设<G, *>是一个由元素a \\in G生成的有限循环群。如果|G| = n，则a^n = e，且G = \\{a, a^2, a^3, \\cdots, a^{n-1}, a^n=e\\}
+群#群的积：设<G, *>是一个群，A, B \\in \\mathscr{P}(G)且 A \\neq \\varnothing, B \\neq \\varnothing, 记AB = \\{a * b|a \\in A, b \\in B\\}
+群#群的逆：A^{-1} = \\{a^{-1}|a \\in A \\}
+同态#设f是代数系统<A, *>到<B, \\triangle>的同态映射
+同态#若<A, *>是半群，则<f(A), \\triangle>也是半群
+同态#若<A, *>是独异点，则<f(A), \\triangle>也是独异点
+同态#若<A, *>是群，则<f(A), \\triangle>也是群
+同态#若<A, *>是阿贝尔群，则<f(A), \\triangle>也是阿贝尔群
+同态#设f是群<G, *>到群<H, \\triangle>的同态，则<Ker(f), *>是群<G, *>的子群；若令K = Ker(f)，则\\forall a \\in G, aK = Ka
+同构#同构关系是等价关系
+环#环的加法幺元必为乘法零元，即\\theta \\cdot a = a \\cdot \\theta = \\theta
+环#(-a) \\cdot b = a \\cdot (-b) = -(a \\cdot b)
+环#(-a) \\cdot (-b) = a \\cdot b
+环#a \\cdot (b - c) = a \\cdot b - a \\cdot c
+环#(b - c) \\cdot a = (b + (-c)) \\cdot a = b \\cdot a + (-c) \\cdot a
+环#\\forall a, b, c \\in A，若a \\cdot b = a \\cdot c，a \\neq \\theta，必有b = c
+环#环 = 环 + 乘法幺元 + 乘法可交换 + 无零因子
+环#<A, \\cdot>是可交换独异点，且无零因子
+域#<A - \\{\\theta\\}, \\cdot>是阿贝尔群
+域#域 = 整环 + 除了零元外，每个元素都有逆元
+域#域无零因子
+域#域一定是整环
+域#有限整环一定是域
+同态映射#任一环的同态象是一个环
+格#自反性：a \\preccurlyeq a, a \\succcurlyeq a
+格#反对称性:(a \\preccurlyeq b) \\land (b \\preccurlyeq a) \\Rightarrow a = b, (a \\succcurlyeq b)\\land(b \\succcurlyeq a) \\Rightarrow a = b
+格#传递性:(a \\preccurlyeq b) \\land (b \\preccurlyeq c) \\Rightarrow a \\preccurlyeq c                                                                        , (a \\succcurlyeq b) \\land (b \\succcurlyeq c) \\Rightarrow ac
+格#确界描述一:a \\preccurlyeq a \\lor b, b \\preccurlyeq a \\lor b, a \\land b \\preccurlyeq a, a \\land b \\preccurlyeq b
+格#确界描述二:(a \\preccurlyeq c) \\land (b \\preccurlyeq c) \\Rightarrow a \\lor b \\preccurlyeq c                                                                               , (c \\preccurlyeq a) \\land (c \\preccurlyeq b) \\Rightarrow c \\preccurlyeq a \\land b
+格#盖住的等价:a \\preccurlyeq b \\Leftrightarrow a \\land b = a \\Leftrightarrow a \\lor b = b
+格#交换律:a \\lor b = b \\lor a, a \\land b = b \\land a
+格#结合律:(a \\lor b) \\lor c = a \\lor (b \\lor c), (a \\land b) \\land c = a \\land (b \\land c)
+格#幂等律:a \\lor a = a, a \\land a = a
+格#吸收律:a \\lor (a \\land b) = a, a \\land (a \\lor b) = a
+格#若a \\preccurlyeq b, c \\preccurlyeq d，则a \\lor c \\preccurlyeq b \\lor d, a \\land c \\preccurlyeq b \\land d
+格#保序性:若b \\preccurlyeq c，则a \\lor b \\preccurlyeq a \\lor c, a \\land b \\preccurlyeq a \\land c
+格#分配不等式:a \\lor (b \\land c) \\preccurlyeq (a \\lor b) \\land (a \\lor c), (a \\land b) \\lor (a \\land c) \\preccurlyeq a \\land (b \\lor c)
+格#模不等式:a \\preccurlyeq c \\Leftrightarrow a \\lor (b \\land c) \\preccurlyeq (a \\lor b) \\land c
+格#推论：(a \\land b) \\lor (a \\land c) \\preccurlyeq a \\land (b \\lor (a \\land c)) \\n a \\lor (b \\land (a \\lor c)) \\preccurlyeq (a \\lor b) \\land (a \\lor c)
+格#引理：若<A, \\lor, \\land>是一个代数系统，其中\\lor，\\land都是二元运算且满足吸收律，则\\lor，\\land必满足幂等律
+格#设<A, \\lor, \\land>是一个代数系统，其中\\lor，\\land都是二元运算且满足交换律，结合律和吸收律，则A上存在偏序关系\\preccurlyeq，使<A, \\preccurlyeq>是一个格
+格同构#设f是格<A, \\preccurlyeq_1>到<A, \\preccurlyeq_2>的格同态，\\forall a, b \\in A_1，若a \\preccurlyeq_1 b，必有f(a) \\preccurlyeq_2 f(b)
+格同构#逆命题不成立
+格同构#设两个格<A, \\preccurlyeq_1>和<A, \\preccurlyeq_2>，f是A_1到A_2的双射，则f是格<A, \\preccurlyeq_1>到<A, \\preccurlyeq_2>的格同构，当且仅当\\forall a, b \\in A_1, a \\preccurlyeq_1 b \\Leftrightarrow f(a) \\preccurlyeq_2 f(b)
+分配格#若在一个格中交运算对并运算可分配，则并运算对交运算也一定可分配，反之亦然
+分配格#设<A, \\preccurlyeq>是分配格，则\\forall a, b, c \\in A，有a \\land c = b \\land c 且 a \\lor c = b \\lor c \\Rightarrow a = b
+分配格#分配格的判定：x \\land (y \\lor z) = (x \\land y) \\lor (x \\land z), x \\lor (y \\land z) = (x \\lor y) \\land (x \\lor z)其一成立
+分配格#格<A, \\preccurlyeq>是分配格当且仅当A中不含与钻石格或五角格同构的子格
+分配格#分配格的子格必是分配格
+分配格#每个链是分配格
+有界格#设<A, \\preccurlyeq>为有界格，则\\forall a \\in A有\\n a \\lor 1 = 1, a \\land 1 = a \\n a \\lor 0 = a, a \\land 0 = 0
+有界格#在有界分配格中，若某元素有补元，则必唯一
+布尔代数#布尔格中任一元素a的补元存在且唯一，记为\\overline{a}
+布尔代数#\\overline{(\\overline{a})} = a
+布尔代数#\\overline{(a \\lor b)} = \\overline{a} \\land \\overline{b}
+布尔代数#\\overline{(a \\land b)} = \\overline{a} \\lor \\overline{b}
+布尔代数#设<A, \\preccurlyeq>是一个具有全下界0的有限格，若b \\neq 0，则至少存在一个原子a，使a \\preccurlyeq b
+有限布尔代数#对任一正整数n，必存在含有2^n个元素的布尔代数
+有限布尔代数#任一有限布尔代数的元素的个数必为2^n，n为正整数
+有限布尔代数#元素个数相同的布尔代数是同构的
+有限布尔代数#在布尔格中，b \\land \\overline{c} = 0当且仅当b \\preccurlyeq c
+有限布尔代数#设<A, \\lor, \\land, \\overline{\\over}>是一个有限布尔代数，若b \\in A，且b \\neq 0，又设a_1, a_2, \\cdots, a_k是A中满足a_j \\preccurlyeq b(j = 1, 2, \\cdots, k)的所有原子，则 \\n b = a_1 \\lor a_2 \\lor a_3 \\cdots \\lor a_k
+有限布尔代数#设<A, \\preccurlyeq>是布尔格，a为任意一个原子，b \\neq 0，则\\n a \\preccurlyeq b和a \\preccurlyeq \\overline{b}两式中，有且仅有一个成立
+图论#两图同构的必要条件：结点数相同，边数相同，对应结点的度数相等

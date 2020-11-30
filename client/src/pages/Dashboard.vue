@@ -10,7 +10,6 @@
     </template>
 
     <router-view/>
-
   </div>
 </template>
 
@@ -51,11 +50,11 @@ export default {
           title: '答题卡',
           icon: 'fa fa-chart-area',
         },
-        // {
-        //   href: '/answersheet2',
-        //   title: '答题卡2',
-        //   icon: 'fa fa-chart-area',
-        // }
+        {
+          href: '/answersheet',
+          title: '答题卡2',
+          icon: 'fa fa-chart-area',
+        }
       ]
     }
   },
@@ -74,8 +73,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: auto;
-  margin-top: 1rem;
+  margin: 0;
+  /*margin-top: 1rem;*/
   max-width: 1100px;
 }
 .icon{

@@ -84,9 +84,13 @@ export default {
   },
   methods:{
     async initData() {
-      const response = await axios.get('^/api/problems');
-      this.problems = response.data;
-
+      var app = this;
+      await axios.get('http://discretemath-app.herokuapp.com/problems').then(function (response) {
+        console.log(response);
+        app.problems = response.data;
+      }).catch(function (error) {
+            console.log(error);
+          });
     },
     changeTableMaxWidth(width){
       var val = parseInt(width)+1000;

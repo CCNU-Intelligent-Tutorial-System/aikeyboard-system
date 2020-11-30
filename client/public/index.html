@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
 
@@ -17,11 +18,16 @@
     <link rel="stylesheet" href="<%= BASE_URL %>css/simple-image.css">
     <link rel="stylesheet" href="<%= BASE_URL %>css/math.css">
     <link rel="stylesheet" href="<%= BASE_URL %>css/marker.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>css/canvas.css">
+    <link rel="stylesheet" href="<%= BASE_URL %>css/mind-map.css">
 
     <script type="text/javascript" src="<%= BASE_URL %>js/marker.js"></script>
     <script type="text/javascript" src="<%= BASE_URL %>js/simple-image.js"></script>
     <script type="text/javascript" src="<%= BASE_URL %>js/math.js"></script>
     <script src='https://unpkg.com/mathlive/dist/mathlive.min.js'></script>
+<!--    <script src="http://localhost:8080/socket.io/socket.io.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blissfuljs/1.0.4/bliss.shy.js"></script>
+
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
@@ -39,5 +45,7 @@
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bulma.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.js"></script>
+<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
 </body>
 </html>

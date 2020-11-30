@@ -1,3 +1,17 @@
+html{
+    --font-mono: Consolas, Monaco, 'Andale Mono', monospace;
+
+    --color-violet: #b270ff;
+    --color-red: #ff6060;
+    --color-green: #00e0a8;
+}
+math-field {
+    --hue: 10;
+    --highlight: yellow;
+    --highlight-inactive: yellow;
+    --primary: grey;
+}
+
 .simple-image {
     padding: 20px 0;
 }
@@ -43,4 +57,41 @@
 [contenteditable="true"].single-line * {
     display:inline;
     white-space:nowrap;
+}
+
+.hg-row {
+    display: flex;
+    position: absolute;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+    z-index: 999;
+}
+.hg-button {
+    margin-right: 5px;
+    color: rgba(0,0,0,0.7);
+    font-weight: 300;
+    font-size: 17px;
+    box-shadow: 0 0 3px -1px rgba(0,0,0,.3);
+    height: 40px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 5px;
+    background: #fff;
+    border-bottom: 1px solid #b5b5b5;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    flex-grow: 1;
+}
+.hg-button:active {
+    background: #efefef;
+}
+.hg-button:hover {
+    background: #efefef;
+}
+.hg-activeButton {
+    background: #efefef;
 }

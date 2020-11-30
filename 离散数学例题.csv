@@ -1,0 +1,14 @@
+类型#题目#答案
+证明题#证明[0,1]和(0,1)有相同的基数#明：作入射函数：\n f: (0, 1) \rightarrow [0, 1], f(x) = x \n g: [0, 1] \rightarrow (0, 1), g(x) = \frac{x}{2} + \frac{1}{4}
+证明题#设A = N，B=(0,1)，K[A] = \aleph_0，K[B] = \aleph，求证：K[A \times B] = \aleph#证明：\n定义一个从A \times B到正实数的函数f，\n f: A \times B \rightarrow \{x|x \in R_+\} > f(n, x) = n + x\n因为f是一个入射函数，且K[R_+] = \aleph\n所以K[A \times B] \leqslant \aleph\n此外，作映射g: (0, 1) \rightarrow A \times B\n g(x) = <0, x>\n因为g是入射的，故\aleph \leqslant K[A \times B]\n因此K[A \times B] = \aleph
+{
+
+name:'',
+age:'',
+en:[
+ty:''
+]
+}
+
+select name,
+
