@@ -10,10 +10,10 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/dataTables.bulma.min.css">
-<!--    <link href="https://mathquill.com/lib/mathquill.css" rel="stylesheet">-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>css/dataTables.bulma.min"/>
+    <link rel="stylesheet" type="text/css" href="<%= BASE_URL %>css/bulma.min.css">
+    <!--    <link href="https://mathquill.com/lib/mathquill.css" rel="stylesheet">-->
+    <link href="<%= BASE_URL %>css/mathquill.css" rel="stylesheet">
     <link rel="stylesheet" href="<%= BASE_URL %>css/main.css">
     <link rel="stylesheet" href="<%= BASE_URL %>css/simple-image.css">
     <link rel="stylesheet" href="<%= BASE_URL %>css/math.css">
@@ -24,9 +24,10 @@
     <script type="text/javascript" src="<%= BASE_URL %>js/marker.js"></script>
     <script type="text/javascript" src="<%= BASE_URL %>js/simple-image.js"></script>
     <script type="text/javascript" src="<%= BASE_URL %>js/math.js"></script>
-    <script src='https://unpkg.com/mathlive/dist/mathlive.min.js'></script>
-<!--    <script src="http://localhost:8080/socket.io/socket.io.js"></script>-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blissfuljs/1.0.4/bliss.shy.js"></script>
+    <script src='<%= BASE_URL %>css/mathlive.min.css'></script>
+    <script src='<%= BASE_URL %>js/mathlive.min.js'></script>
+    <!--    <script src="http://localhost:8080/socket.io/socket.io.js"></script>-->
+    <script src="<%= BASE_URL %>js/bliss.shy.js"></script>
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
@@ -40,12 +41,12 @@
 
 
 
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bulma.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.js"></script>
-<script src="https://cdn.rawgit.com/alertifyjs/alertify.js/v1.0.10/dist/js/alertify.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+<script type="text/javascript" src="<%= BASE_URL %>js/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="<%= BASE_URL %>js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="<%= BASE_URL %>js/dataTables.bulma.min.js"></script>
+<script src="<%= BASE_URL %>js/editorjs@latest.js"></script>
+<script src="<%= BASE_URL %>js/mathquill.js"></script>
+<script src="<%= BASE_URL %>js/alertify.js"></script>
+<script src="<%= BASE_URL %>js/socket.io.js"></script>
 </body>
 </html>

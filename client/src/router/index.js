@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Charts from '@/components/Charts'
+import Keyboard from '@/components/Keyboard'
 import Dashboard from '@/pages/Dashboard'
 import Login from '@/pages/Login'
 import Registration from '@/pages/Registration'
@@ -12,6 +13,11 @@ Vue.use(Router)
 
 export default new Router({
     routes: [
+        {
+            path: '/keyboard',
+            name: 'keyboard',
+            component: Keyboard,
+        },
         {
             path: '/login',
             name: 'login',

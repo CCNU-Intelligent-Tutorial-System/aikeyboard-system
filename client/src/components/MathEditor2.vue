@@ -1,7 +1,7 @@
 <template>
   <div id="editor">
 
-    <problem-list />
+    <dynamic-keyboard />
 
     <div v-if="showPrompt" class="alertify">
       <div id="dlgContent" class="dialog">
@@ -93,6 +93,7 @@ import Table from '@editorjs/table';
 import VueHotkey from 'v-hotkey'
 import Vue from 'vue';
 import ProblemList from './ProblemList';
+import Keyboard from './Keyboard';
 // const io = require('socket.io')();
 Vue.use(VueHotkey);
 
@@ -101,9 +102,10 @@ Vue.use(VueHotkey);
 
 export default {
   name: "MathEditor",
-  components: {ProblemList},
+  components: {ProblemList,Keyboard},
   comments:{
-    'problem-list':ProblemList
+    'problem-list':ProblemList,
+    'dynamic-keyboard':Keyboard
   },
   data() {
     return {
