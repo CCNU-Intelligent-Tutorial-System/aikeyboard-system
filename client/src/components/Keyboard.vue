@@ -1,5 +1,5 @@
 <template>
-<div class="container" id="app">
+<div class="container">
   <div class="layout shadow">
     <div class="banner">
       <div class="banner_left">
@@ -16,7 +16,7 @@
       <input id="chck1" type="checkbox"/>
       <label class="banner_right btn_unfold" for="chck1">展开</label>
       <div class="symbols mh55">
-        <div class="symbol_ shadow" v-for="s in l1_data"> 
+        <div class="symbol_ shadow" v-for="s in l1_data" @click="copy(s)"> 
           <div class="s1">{{ s }}</div>
           <div class="t1">{{ meaning(s) }}</div>
         </div>
@@ -31,7 +31,7 @@
       <input id="chck2" type="checkbox"/>
       <label class="banner_right btn_unfold" for="chck2">展开</label>
       <div class="symbols mh35">
-        <div class="symbol shadow" v-for="s in l2_data">{{ s }}</div>
+        <div class="symbol shadow" v-for="s in l2_data" @click="copy(s)">{{ s }}</div>
       </div>
     </div>
     <div class="Layer">
@@ -43,7 +43,7 @@
       <input id="chck3" type="checkbox"/>
       <label class="banner_right btn_unfold" for="chck3">展开</label>
       <div class="symbols mh35">
-        <div class="symbol shadow" v-for="s in l3_data">{{ s }}</div>
+        <div class="symbol shadow" v-for="s in l3_data" @click="copy(s)">{{ s }}</div>
       </div>
     </div>
     <div class="Layer">
@@ -55,7 +55,7 @@
       <input id="chck4" type="checkbox"/>
       <label class="banner_right btn_unfold" for="chck4">展开</label>
       <div class="symbols mh70">
-        <div class="symbol shadow" v-for="s in l4_data">{{ s }}</div>
+        <div class="symbol shadow" v-for="s in l4_data" @click="copy(s)">{{ s }}</div>
       </div>
     </div>
   </div>
@@ -98,6 +98,16 @@ export default {
         return '非';
       else
         return '';
+    },
+    copy(symbol){
+      var textareaC = document.createElement('textarea');
+      textareaC.setAttribute('readonly', 'readonly'); 
+      textareaC.setAttribute('opacity', 0); 
+      textareaC.value = symbol;
+      document.body.appendChild(textareaC); 
+      textareaC.select();
+      document.execCommand('copy');
+      document.body.removeChild(textareaC);
     }
   }
 }

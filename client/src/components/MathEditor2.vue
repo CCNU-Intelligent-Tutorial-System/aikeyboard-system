@@ -1,7 +1,9 @@
 <template>
   <div id="editor">
 
-    <dynamic-keyboard />
+    <div class="keyboard">
+      <Keyboard />
+    </div>
 
     <div v-if="showPrompt" class="alertify">
       <div id="dlgContent" class="dialog">
@@ -93,7 +95,7 @@ import Table from '@editorjs/table';
 import VueHotkey from 'v-hotkey'
 import Vue from 'vue';
 import ProblemList from './ProblemList';
-import Keyboard from './Keyboard';
+import Keyboard from '@/components/Keyboard'
 // const io = require('socket.io')();
 Vue.use(VueHotkey);
 
@@ -350,11 +352,13 @@ export default {
   methods: {
 
     onFocus(e, index) {
+      console.log('onFocus');
       this.isFocusing = true;
       this.cur_index = index;
       this.previouslyFocused = e.target
     },
     onInput(event, index) {
+      console.log('onInput');
       event.preventDefault();
       let value = event.target.value;
       value = value.replaceAll('$$', '');
@@ -397,20 +401,26 @@ export default {
       console.log(event.detail.direction);
     },
     onSelect(event,i){
+      console.log('onSelect');
+      console.log(event);
         var target = event.target;
         var selection = window.getSelection().toString();
+        console.log(window.getSelection())
         console.log(selection);
+        console.log(this.selectionStart);
         if (selection==="" && this.mathkey!=''){
           let k = this.mathkey;
           this.mathkey = '';
           let pos = target.position;
+          console.log('pos:'+pos);
           target.insert(k);
-
+          document.execCommand('paste');
         }else{
           this.socket.emit('search',selection);
           target.applyStyle({ backgroundColor: 'yellow' },selection,{
             suppressChangeNotifications: true,
           });
+          document.execCommand('paste');
         }
 
     },
@@ -738,5 +748,11 @@ export default {
   font-size: 12px;
   margin-bottom: 20px;
   letter-spacing: .1em;
+}
+.keyboard {
+  position: absolute;
+  z-index: 9999;
+  right: 70px;
+  top: 50px;
 }
 </style>

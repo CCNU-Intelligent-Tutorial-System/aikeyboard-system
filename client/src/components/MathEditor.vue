@@ -1,5 +1,8 @@
 <template>
   <div id="editor">
+    <div class="keyboard">
+      <Keyboard />
+    </div>
     <div class="board">
       <div class="title">答题卡</div>
       <div class="wrapper x">
@@ -7,7 +10,7 @@
           <div v-for="k in mathKeys" class="key" @click="input(k)">{{ k }}</div>
         </div>
       </div>
-<!--      <span id="math-field" contenteditable="true">vvfdfd</span>-->
+      <!--      <span id="math-field" contenteditable="true">vvfdfd</span>-->
       <div id="keyboard">
         <div class="btn-group" role="group" aria-label="math functions">
           <button type="button" class="btn btn-default" @click='input("\\sqrt")'>√</button>
@@ -44,35 +47,36 @@ import Warning from '@editorjs/warning';
 import Marker from '@editorjs/marker';
 import Delimiter from '@editorjs/delimiter';
 import Table from '@editorjs/table';
-
+import Keyboard from '@/components/Keyboard'
 
 export default {
   name: "MathEditor",
+  components: {Keyboard},
   data() {
     return {
       mathField: null,
       editor: null,
       mathKeys: [
-        '∊' ,
-        '→' ,
-        '∫' ,
-        '∑' ,
-          '√',
-          'sin',
-          'cos',
-          'tan',
-          '/',
-        '∘' ,
-        '⇒' ,
-        '∮' ,
-        '∀' ,
-        '∃' ,
-        '∅' ,
-        '∩' ,
-        '∪' ,
-        '≤' ,
-        '≥' ,
-        '⊂' ,
+        '∊',
+        '→',
+        '∫',
+        '∑',
+        '√',
+        'sin',
+        'cos',
+        'tan',
+        '/',
+        '∘',
+        '⇒',
+        '∮',
+        '∀',
+        '∃',
+        '∅',
+        '∩',
+        '∪',
+        '≤',
+        '≥',
+        '⊂',
         '⊥'
       ]
     }
@@ -190,8 +194,8 @@ export default {
             "Italic": "斜体",
             "InlineCode": "行内代码",
             "Image": "图片",
-            "MarkerTool":"批改笔",
-            "MathEx":"数学编辑器"
+            "MarkerTool": "批改笔",
+            "MathEx": "数学编辑器"
           },
 
           tools: {
@@ -208,10 +212,10 @@ export default {
             "image": {
               "Paste an image URL...": "请输入图片地址...",
               'Please input Caption...': "请输入图片标题...",
-              "Caption...":"标题...",
+              "Caption...": "标题...",
               'withBorder': '加边框',
               'stretched': '放大',
-              'withBackground':'加背景',
+              'withBackground': '加背景',
             }
           },
 
@@ -234,8 +238,8 @@ export default {
             "moveDown": {
               "Move down": "往下移"
             },
-            "withBorder":{
-              "withBorder":"边框"
+            "withBorder": {
+              "withBorder": "边框"
             }
           },
         }
@@ -255,9 +259,9 @@ export default {
     cur_time() {
       let currentdate = new Date();
       return currentdate.getDate() + "/"
-          + (currentdate.getMonth() + 1) + "/"
-          + currentdate.getFullYear() + "  " +
-          currentdate.getHours() + ":" + currentdate.getMinutes();
+        + (currentdate.getMonth() + 1) + "/"
+        + currentdate.getFullYear() + "  " +
+        currentdate.getHours() + ":" + currentdate.getMinutes();
     },
     input(str) {
       let mathFieldSpan = document.getElementById('math-field');
@@ -318,5 +322,13 @@ export default {
   font-size: 12px;
   margin-bottom: 20px;
   letter-spacing: .1em;
+}
+
+.keyboard {
+  position: absolute;
+  z-index: 9999;
+  right: 70px;
+  top: 50px;
+  background-color: whitesmoke;
 }
 </style>
